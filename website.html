@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BorderSMP Sunucumuza Bekleriz</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('arkaplan-resmi.jpg') no-repeat center center fixed;
+            background-size: cover;
+            /* Arka plan resmini ekran boyutuna göre ölçekle */
+            -webkit-background-size: cover;
+            /* WebKit tarayıcıları için */
+            -moz-background-size: cover;
+            /* Firefox için */
+            -o-background-size: cover;
+            /* Opera için */
+            background-size: cover;
+            /* Standart */
+        }
+
+        /* İçerik için biraz boşluk ekleyebiliriz */
+        .content {
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('Minecraft.woff2') format('woff2'),
+                url('Minecraft.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-image: url('minecraft_manzara.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Minecraft', Arial, sans-serif;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .button {
+            background-color: #3a9529;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            /* Transform efekti için geçiş efekti */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            /* Hover efekti: buton büyüklüğünü artırır */
+        }
+
+        .button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            /* Hover efekti: arka planın açıklığını değiştirir */
+            opacity: 0;
+        }
+
+        .button:hover:before {
+            opacity: 1;
+        }
+
+        .notification {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 0, 0.3);
+            /* Sarı, şeffaf arka plan */
+            color: white;
+            font-family: 'Minecraft', Arial, sans-serif;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+        }
+
+        .notification .close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="font-size: 36px;">BorderSMP Sunucumuza Bekleriz</h1>
+        <p>BorderSMP sunucumuzu keşfetmek için aşağıdaki ID'yi kopyalayın:</p>
+        <button class="button" onclick="copyToClipboard('bordersmp.duckdns.org')">ID için Tıkla</button>
+    </div>
+
+    <div class="notification" id="notification">
+        <span class="close" onclick="closeNotification()">×</span>
+        <p>ID kopyalandı</p>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+
+            // Bildirim gösterme işlemi
+            showNotification();
+        }
+
+        function showNotification() {
+            var notification = document.getElementById("notification");
+            notification.style.display = "block";
+            setTimeout(function () {
+                notification.style.display = "none";
+            }, 3000); // 3 saniye sonra bildirimi kapat
+        }
+
+        function closeNotification() {
+            var notification = document.getElementById("notification");
+            notification.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
