@@ -11,18 +11,12 @@
             padding: 0;
             background: url('arkaplan-resmi.jpg') no-repeat center center fixed;
             background-size: cover;
-            /* Arka plan resmini ekran boyutuna göre ölçekle */
             -webkit-background-size: cover;
-            /* WebKit tarayıcıları için */
             -moz-background-size: cover;
-            /* Firefox için */
             -o-background-size: cover;
-            /* Opera için */
             background-size: cover;
-            /* Standart */
         }
 
-        /* İçerik için biraz boşluk ekleyebiliriz */
         .content {
             padding: 20px;
             text-align: center;
@@ -65,14 +59,12 @@
             cursor: pointer;
             border-radius: 8px;
             transition: transform 0.3s ease;
-            /* Transform efekti için geçiş efekti */
             position: relative;
             overflow: hidden;
         }
 
         .button:hover {
             transform: scale(1.1);
-            /* Hover efekti: buton büyüklüğünü artırır */
         }
 
         .button:before {
@@ -85,7 +77,6 @@
             background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
             z-index: -1;
             transition: opacity 0.3s ease;
-            /* Hover efekti: arka planın açıklığını değiştirir */
             opacity: 0;
         }
 
@@ -98,7 +89,6 @@
             top: 20px;
             right: 20px;
             background-color: rgba(255, 255, 0, 0.3);
-            /* Sarı, şeffaf arka plan */
             color: white;
             font-family: 'Minecraft', Arial, sans-serif;
             padding: 10px 20px;
@@ -141,7 +131,6 @@
             document.execCommand("copy");
             document.body.removeChild(textarea);
 
-            // Bildirim gösterme işlemi
             showNotification();
         }
 
@@ -150,7 +139,7 @@
             notification.style.display = "block";
             setTimeout(function () {
                 notification.style.display = "none";
-            }, 3000); // 3 saniye sonra bildirimi kapat
+            }, 3000);
         }
 
         function closeNotification() {
